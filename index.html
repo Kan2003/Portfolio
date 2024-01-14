@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KANHA VISHWAKARMA</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <!-- <link rel="manifest" href="/site.webmanifest"> -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css">
     <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
 
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div id="loadingScreen"></div>
     <div id="cursor"></div>
     <div id="navbar">
         <h2>Kanha.</h2>
@@ -24,8 +24,8 @@
                 <h2>Creative-</h2>
                 <h2>Design</h2>
             </div>
-            <a class="ani" href="#home">Works</a>
-            <a class="ani" href="">About</a>
+            <a class="ani" href="#footer">Works</a>
+            <a class="ani" href="#about">About</a>
             <div class="toggle">
                 <svg class="menu-opener__square" width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <rect y="10" width="2" height="2" fill="currentColor"></rect>
@@ -44,7 +44,7 @@
     <div id="topnavbar">
         <div id="top-left">
             <div class="top-head">
-                <h2>home</h2>
+                <h2 href="/projects">home</h2>
             </div>
             <div class="top-head">
                 <h2>works</h2>
@@ -59,22 +59,47 @@
         <div id="top-right">
             <div id="social">
                 <h3>Socials</h3>
-                <div class="revel"><a href="">Linkedin</a></div>
-                <div class="revel"><a href="">Instagram</a></div>
+                <div class="revel"><a revel-content="Linkedin" href="">Linkedin</a></div>
+                <div class="revel"><a revel-content="Instagram" href="">Instagram</a></div>
             </div>
             <div id="Coding">
                 <h3>Coding Profiles</h3>
-                <div class="revel"><a href="">Leetcode</a></div>
-                <div class="revel"><a href="">Hackerrank</a></div>
-                <div class="revel"><a href="">GeeksForGeeks</a></div>
-                <div class="revel"><a href="">CodingNinja</a></div>
-                <div class="revel"><a href="">GitHub</a></div>
+                <div class="revel"><a revel-content="Leetcode" href="">Leetcode</a></div>
+                <div class="revel"><a revel-content="Hackerrank" href="">Hackerrank</a></div>
+                <div class="revel"><a revel-content="GeeksForGeeks" href="">GeeksForGeeks</a></div>
+                <div class="revel"><a revel-content="CodingNinja" href="">CodingNinja</a></div>
+                <div class="revel"><a revel-content="GitHub" href="">GitHub</a></div>
             </div>
             <div id="mail">
                 <h3>Say Hi!</h3>
-                <h4>kanhavishwakarma2003@gmail.com</h4>
+                <div class="revel email">
+                    <a  revel-content="kanhavishwakarma2003@gmail.com">kanhavishwakarma2003@gmail.com</a>
+                    <span></span>
+                </div>
             </div>
         </div>
+    </div>
+    <div id="main_loader">
+            <div class="r1 loader-head">
+                <div id="count">0 - <span>0</span></div>
+                <h1>YOUR</h1>
+            </div>
+            <div class="loader-head">
+                <h1>web experience</h1>
+            </div>
+            <div class="loader-head">
+                <h1>is loading right <span>now</span></h1>
+            </div>
+            <div class="newone">
+                <div class="loader-head">
+                    <h4>Please wait</h4>
+                </div>
+                <div class="loader-head">
+                    <h4>a second ..</h4>
+                </div>
+                
+            </div>
+
     </div>
     <div id="main">
         <div id="home" data-scroll data-scroll-speed="2">
@@ -90,6 +115,10 @@
             </div>
             <div class="head">
                 <h1>EXPERIENCE</h1>
+            </div>
+            <div id="shape">
+                <div id="shape-1"></div>
+                <div id="shape-2"></div>
             </div>
         </div>
         <div class="gap"></div>
@@ -107,9 +136,9 @@
             </div>
             <div id="proj">
                 <div class="row">
-                    <div class="elem1">
+                    <div class="elem1" id="box-1">
                         <div class="proj-head">
-                            <h1>MALWA GOLD</h1>
+                            <h1 data-content="MALWA GOLD">MALWA GOLD</h1>
                         </div>
                         <div class="image" id="img1">
                             <img src="/assets/20231224_124734.jpg" alt="">
@@ -120,9 +149,9 @@
                         </div>
                         <div class="under-line"></div>
                     </div>
-                    <div class="elem2">
+                    <div class="elem2" id="box-2">
                         <div class="proj-head">
-                            <h1>INSTAGRAM</h1>
+                            <h1 data-content="INSTAGRAM">INSTAGRAM</h1>
                         </div>
                         <div class="image animate">
                             <img src="https://images.unsplash.com/photo-1611162618758-2a29a995354b?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -167,9 +196,9 @@
                         </div>
                         <div class="arrow-new" id="arrow-2"></div>
                     </div>
-                    <div class="elem2" data-scroll data-scroll-speed="1">
+                    <div class="elem2" id="box-3" data-scroll data-scroll-speed="1">
                         <div class="proj-head">
-                            <h1>MEDICARE</h1>
+                            <h1 data-content="MEDICARE">MEDICARE</h1>
                         </div>
                         <div class="image animate">
                             <img src="https://images.unsplash.com/photo-1639154968821-6dbc3efb8d23?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -183,9 +212,9 @@
                         </div>
                         <div class="under-line"></div>
                     </div>
-                    <div class="elem2" data-scroll data-scroll-speed="-1">
+                    <div class="elem2" id="box-4" data-scroll data-scroll-speed="-1">
                         <div class="proj-head">
-                            <h1>DSA LEARNING APP</h1>
+                            <h1 data-content="DSA LEARNING APP">DSA LEARNING APP</h1>
                         </div>
                         <div class="image animate">
                             <img src="https://images.unsplash.com/photo-1633250391894-397930e3f5f2?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -203,9 +232,9 @@
                 </div>
                 <div class="row">
 
-                    <div class="elem2" data-scroll data-scroll-speed="1">
+                    <div class="elem2" id="box-5" data-scroll data-scroll-speed="1">
                         <div class="proj-head">
-                            <h1>E-COMMERCE</h1>
+                            <h1 data-content="E-COMMERCE">E-COMMERCE</h1>
                         </div>
                         <div class="image animate">
                             <img src="https://plus.unsplash.com/premium_photo-1684785618727-378a3a5e91c5?q=80&w=1984&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -235,9 +264,9 @@
                         </div>
                         <div class="arrow-new" id="arrow-3"></div>
                     </div>
-                    <div class="elem2">
-                        <div class="proj-head">
-                            <h1>PINTEREST</h1>
+                    <div class="elem2" id="box-6">
+                        <div class="proj-head" data-content = "PINTEREST">
+                            <h1 data-content="PINTEREST">PINTEREST</h1>
                         </div>
                         <div class="image animate">
                             <img src="https://images.unsplash.com/photo-1586125112776-9245465d02d6?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -292,7 +321,9 @@
                         <p class="des">Currently diving into ReactJS, NextJS, and NodeJS for a comprehensive web
                             development skill set. Embracing these technologies to craft efficient, scalable
                             applications that meet modern demands.</p>
-                        <a class="about-button" href="">Download CV</a>
+                        <div class="about-button" >
+                            <a href="">Download CV</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -400,23 +431,27 @@
                 <div class="col">
                     <h3>Coding Profiles</h3>
                     <div class="profiles">
-                        <div class="revel"><a href="">Leetcode</a></div>
-                        <div class="revel"><a href="">Hackerrank</a></div>
-                        <div class="revel"><a href="">GeeksForGeeks</a></div>
-                        <div class="revel"><a href="">CodingNinja</a></div>
-                        <div class="revel"><a href="">GitHub</a></div>
+                        <div class="revel"><a revel-content="Leetcode" href="">Leetcode</a></div>
+                        <div class="revel"><a revel-content="Hackerrank" href="">Hackerrank</a></div>
+                        <div class="revel"><a revel-content="GeeksForGeeks" href="">GeeksForGeeks</a></div>
+                        <div class="revel"><a revel-content="CodingNinja" href="">CodingNinja</a></div>
+                        <div class="revel"><a revel-content="GitHub" href="">GitHub</a></div>
                     </div>
                 </div>
                 <div class="col">
                     <h3>Socials</h3>
                     <div class="profiles">
-                        <div class="revel"><a href="">Linkedin</a></div>
-                        <div class="revel"><a href="">Instagram</a></div>
+                        <div class="revel"><a revel-content="Linkedin" href="">Linkedin</a></div>
+                        <div class="revel"><a revel-content="Instagram" href="">Instagram</a></div>
                     </div>
                 </div>
                 <div class="col">
                     <h3>Say Hi!</h3>
-                    <h4>kanhavishwakarma2003@gmail.com</h4>
+                    <div class="revel email">
+                        <a revel-content="kanhavishwakarma2003@gmail.com">kanhavishwakarma2003@gmail.com</a>
+                        <span></span>
+                    </div>
+                    
                 </div>
             </div>
         </div>

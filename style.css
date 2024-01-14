@@ -1,18 +1,18 @@
 @font-face {
     font-family: regular;
-    src: url(assets/plain-regular-webfont.ttf);
+    src: url(assets/plain-regular-webfont.woff2);
 }
 @font-face {
     font-family: light;
-    src: url(assets/plain-light-webfont.ttf);
+    src: url(assets/plain-light-webfont.woff2);
 }
 @font-face {
     font-family: regularitalic;
-    src: url(assets/silkserif-regularitalic-webfont.ttf);
+    src: url(assets/silkserif-regularitalic-webfont.woff2);
 }
 @font-face {
     font-family: lightitalic;
-    src: url(assets/silkserif-lightitalic-webfont.ttf);
+    src: url(assets/silkserif-lightitalic-webfont.woff2);
 }
 
 *{
@@ -96,10 +96,10 @@ title {
     font-size: 1vw;
     font-weight: 500;
     cursor: none;
+    transition: transform 1.9s cubic-bezier(0.19, 1, 0.22, 1);
 }
 #navbar #right a:hover {
-    color: #ffffff;
-    opacity: 0.5;
+    color: #cfcdcdd5;
 }
 
 #design {
@@ -127,6 +127,8 @@ title {
     font-weight: 500;
     font-family: regular;
     line-height: 1;
+    z-index: 2;
+    position: relative;
 }
 #home .head:nth-child(1)::before {
     position: absolute;
@@ -138,7 +140,7 @@ title {
 }
 #home .head{
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #home .head:nth-child(3) {
@@ -318,32 +320,8 @@ title {
     object-fit: cover;
 }
 
-#proj .row .proj-head{
-    position: relative;
-    display: block;
-    margin: 1vw 0;
-    overflow: hidden;
-    padding: 0vw;
-}
 
-#proj .row .proj-head h1 {
-    font-size: 2.3vw;
-    font-weight: 800;
-    line-height: 1.5;
-    letter-spacing: 0.5px;
-}
 
-#proj .row .proj-head h1::after{
-    content: "MALWA GOLD";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 100%;
-    font-size: 2vw;
-    font-weight: 800;
-    color: #fff;
-}
 
 .row .text {
     width: 100%;
@@ -394,7 +372,9 @@ title {
       height: 40vw;
 }
 
-
+.arrow button {
+    cursor: none;
+}
 #allproject {
     margin: 15vw 0 10vw 0;
     width: 100%;
@@ -408,7 +388,7 @@ title {
 #allproject #allcircle {
     width: 20vw;
     height: 20vw;
-    background-color: tomato;
+    background-color: #ff4925c9;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -512,14 +492,15 @@ title {
     /* animation-delay: 1s; */
 }
 
-.about-contain #about-bottom-text a {
+/* .about-contain #about-bottom-text a {
     text-decoration: none;
     padding: 1vw 1vw;
     border: 1px solid #fff;
     border-radius: 50px;
     font-size: 1vw;
     color: #ffffff;
-}
+    mix-blend-mode: difference;
+} */
 @keyframes move {
     0%{
         width: 0;
@@ -623,14 +604,16 @@ title {
 }
 
 #footer-contain .col h3 {
-    font-size: 1vw;
+    font-size: 1.2vw;
+    font-weight: 500;
+    font-family: regular;
 }
 #footer-contain .col a {
     text-decoration: none;
     font-size: 1.5vw;
     color: #ffffff;
-    font-weight: 400;
-    font-family: regular;
+    font-weight: 500;
+    font-family: light;
 }
 #footer-contain .col h4{
     font-size: 1.25vw;
@@ -715,13 +698,13 @@ title {
 }
 
 
-#topnavbar #top-right .revel a {
+ .revel a {
     text-decoration: none;
     color: #fff;
     font-size: 1.5vw;
     font-weight: 400;
-    font-family: regular;
-    transition: all cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+    font-family: light;
+    
 }
 #topnavbar #top-right h3 {
     margin-bottom: 1vw;
@@ -746,21 +729,300 @@ title {
     position: relative;
     cursor: none;
     overflow: hidden;
+    z-index: 5;
+
+    padding: 1vw 1vw;
+    border: 1px solid #fff;
+    border-radius: 50px;
+    font-size: 1vw;
+    color: #ffffff;
+    cursor: none;
 }
 .about-button::after {
     pointer-events: none;
     background-color: #ffffff;
-    transform: translateY(5em);
     content: "";
-    z-index: -1;
     position: absolute;
     width: 100%;
-    padding-top: 100%;
+    height: 100%;
     left: 0%;
-    top: 0%;
-    right: 0%;
-    bottom: auto;
-    border-radius: 50%;
-    transition: border-radius var(--circle-btn-half-speed) var(--circle-ease-in) 0.0s, transform var(--circle-btn-speed) var(--circle-ease-in);
+    bottom: -100%;
+    z-index: -1;
+    border-radius: 100%;
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.about-button:hover::after{
+    bottom: 0;
+    border-radius: 0;
+    
+}
+.about-button:hover a{
+    color: #000000;
+}
+.about-button a {
+    z-index: 10;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: none;
+}
+#loadingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #151515;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    z-index: 1005;
+}
+
+
+
+/* project animation */
+#proj .row .proj-head{
+    position: relative;
+    display: block;
+    margin: 1vw 0;
+    overflow: hidden;
+    padding: 0vw;
+    /* background-color: orangered; */
+}
+
+#proj .row .proj-head h1 {
+    font-size: 2.3vw;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1.5s;
+}
+
+
+
+
+.proj-head h1::after{
+    content: attr(data-content);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 100%;
+    font-size: 2.3vw;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+
+
+.revel {
+    position: relative;
+    display: block;
+    /* background-color: orange; */
+    overflow: hidden;
+    /* padding: 1vw 0; */
+}
+.revel a{
+    display: block;
+    
+    transition: transform 1.05s cubic-bezier(.3,.86,.36,.95);
+    cursor: none;
+}
+
+.revel a::after{
+    content: attr(revel-content);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 100%;
+    font-size: 1.5vw;
+    /* font-weight: 800; */
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+.email a {
+    font-size: 1.2vw !important;
+    font-weight: 500;
+}
+.email a::after{
+    content: attr(revel-content);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 100%;
+    font-size: 1.2vw;
+    /* font-weight: 800; */
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+.email span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+}
+
+
+
+#shape-1 {
+    position: absolute;
+    width: 23vw;
+    height: 23vw;
+    background-color: #FE320A;
+    border-radius: 50%;
+    /* transform: translate(-50% , -50%); */
+    left: 30%;
+    top: 35%;
+    filter: blur(40px);
+    z-index: 1;
+    
+}
+#shape-2 {
+    position: absolute;
+    width: 23vw;
+    height: 23vw;
+    background-color: #FE320A;
+    border-radius: 50%;
+    /* transform: translate(-50% , -50%); */
+    left: 30%;
+    top: 35%;
+    filter: blur(30px);
+    animation-name: circle;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    z-index: 1;
+}
+
+@keyframes circle {
+    from{
+        transform: translate(-10% , -10%);
+    }
+    to{
+        transform: translate(10% , 10%);
+    }
+}
+
+
+
+
+
+/* main loader */
+#main_loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #151515;
+    z-index: 1001;
+    padding: 8vw 6vw;
+}
+#main_loader .r1 {
+    display: flex;
+    /* align-items: end; */
+    padding-left: 10%;
+    gap: 50px;
+}
+#main_loader #count{
+    font-size: 4vw;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: regularitalic;
+    width: 20%;
+    
+    
+}
+#main_loader #count span{
+    font-size: 4vw;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: regularitalic;
+    animation-name: flicker;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-iteration-count: infinite;
+}
+
+#main_loader .loader-head,#count {
+    position: relative;
+    overflow: hidden;
+}
+
+#main_loader h1{
+    /* position: absolute; */
+    font-size: 7.5vw;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: regular;
+    text-transform: uppercase;
+    display: block;
+    
+}
+#main_loader h1 span{
+    font-size: 6.5vw;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: regular;
+    text-transform: uppercase;
+    animation-name: fonts;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-iteration-count: infinite;
+    /* animation-name: flicker; */
+    /* background-color: #cfcdcdd5; */
+    
+}
+
+
+@keyframes flicker {
+    0%{
+        opacity: 1;
+        transition: all ease 0.5s;
+    }
+    100%{
+        opacity: 0.2;
+        transition: all ease 0.5s;
+    }
+}
+
+@keyframes fonts {
+    0%{
+        opacity: 1;
+        font-family: regular;
+    }
+ 
+    100%{
+        opacity: 1;
+        font-family: regularitalic;
+    }
+    
+}
+.newone  {
+   text-align: center;
+   margin-top: 2vw;
+   position: relative;
+}
+
+.newone h4 {
+    color: #ffffff;
+    font-family: light;
+    font-weight: 300;
+    font-size: 1vw;
+    animation-name: flicker;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-iteration-count: infinite;
+}
+
+.loader-head:nth-child(3){
+    width: 100%;
+    height: 17vh;
+
+}

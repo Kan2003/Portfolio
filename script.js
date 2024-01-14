@@ -137,7 +137,7 @@ toggle.addEventListener("click",function(){
         gsap.to(elem,{
           opacity:1
         })
-      }, 1000);
+      }, 500);
       
     })
     flag = 0;
@@ -145,27 +145,29 @@ toggle.addEventListener("click",function(){
 });
 
 
-
+let played = false
 const line = document.querySelectorAll(".line");
 
 line.forEach(function(elem){
-  gsap.from(elem, {
-    width: 0,
-    right: '-100%',
-    duration: 2,
-    scrollTrigger: {
-      trigger: elem,
-      scroller : "#main",
-      start: '-400% 93%',
-      end: 'bottom 93%',
-      scrub: 2,
-    }
-  });
+  
+    gsap.from(elem, {
+      width: 0,
+      right: '-100%',
+      duration: 2,
+      scrollTrigger: {
+        trigger: elem,
+        scroller : "#main",
+        start: '-400% 93%',
+        end: 'bottom 93%',
+        scrub: 2,
+      }
+    });
 })
 
 const underLine = document.querySelectorAll(".under-line")
-
+if(played === false){
 underLine.forEach(function(elem){
+
   gsap.from(elem,{
     width: 0,
     right: '-100%',
@@ -179,7 +181,10 @@ underLine.forEach(function(elem){
       // markers : true
     }
   })
+
 })
+ played = true;
+}
 
 
 const head = document.querySelectorAll(".head-main");
@@ -263,11 +268,114 @@ bo.addEventListener("mouseleave",function(dets){
 
 
 Shery.makeMagnet(".ani" /* Element to target.*/, {
-
+  //Parameters are optional.
+  ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+  duration: 0.5,
 });
 
-// const aboutBtn = document.querySelector(".about-button");
+const aboutBtn = document.querySelector(".about-button");
 
-// aboutBtn.addEventListener("mouseenter",function(){
-//   aboutBtn.transform = "translateY(0em)"
-// })
+aboutBtn.addEventListener("mouseenter",function(){
+  aboutBtn.style.color  = "black"
+})
+aboutBtn.addEventListener("mouseleave",function(){
+  aboutBtn.style.color  = "white"
+})
+
+
+window.addEventListener('load', function () {
+  var loadingScreen = document.getElementById('loadingScreen');
+  loadingScreen.style.display = 'none';
+  loaderani.from(".loader-head h1 , .loader-head h4",{
+    y : 150,
+    duration : 1.5,
+    ease : Power4,
+    // delay:0.5
+  })
+  
+  
+});
+
+
+
+
+
+// project animation
+
+
+function addHoverEffect(box, head) {
+  box.addEventListener("mouseenter", function () {
+    head.style.transform = "translateY(-100%)";
+  });
+
+  box.addEventListener("mouseleave", function () {
+    head.style.transform = "translateY(0%)";
+  });
+}
+
+for (let i = 1; i <= 6; i++) {
+  let box = document.querySelector(`#box-${i}`);
+  let boxHead = document.querySelector(`#box-${i} .proj-head h1`);
+
+  addHoverEffect(box, boxHead);
+}
+
+
+
+// revel animation
+
+let revelElements = document.querySelectorAll('.revel');
+
+revelElements.forEach(function(element) {
+  let aElement = element.querySelector('.revel a');
+  element.addEventListener('mouseenter', function () {
+    aElement.style.transform = "translateY(-100%)";    
+  });
+
+  element.addEventListener('mouseleave', function () {
+    aElement.style.transform = "translateY(0%)";
+  });
+});
+
+
+
+// loader
+
+let progress = 0;
+    // const preloader = document.getElementById('preloader');
+    const countElement = document.querySelector('#count span');
+
+    function updateCount() {
+        countElement.textContent = `${progress}`;
+
+        if (progress < 100) {
+            progress += 1;
+            setTimeout(updateCount, 25); // Adjust the timeout for the desired speed
+        }
+        else{
+          loaderani.to(".loader-head h1,.newone .loader-head h4",{
+            delay : 0.5,
+            opacity: 0,
+            duration:1
+          })
+          loaderani.to("#main_loader",{
+            duration : 1.5,
+            y:"-100%"
+        })
+          
+          
+          loaderani.from(".head h1",{
+            y : 120,
+            duration : 1,
+            ease : Power4,
+            delay : -1,
+            stagger : 0.1
+          })
+          
+        }
+    }
+
+    updateCount();
+
+var loaderani = gsap.timeline();
+
