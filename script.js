@@ -286,14 +286,59 @@ aboutBtn.addEventListener("mouseleave",function(){
 window.addEventListener('load', function () {
   var loadingScreen = document.getElementById('loadingScreen');
   loadingScreen.style.display = 'none';
-  loaderani.from(".loader-head h1 , .loader-head h4",{
-    y : 150,
-    duration : 1.5,
-    ease : Power4,
-    // delay:0.5
-  })
   
   
+var loaderani = gsap.timeline();
+  
+loaderani.from(".loader-head h1 , .loader-head h4",{
+  y : 150,
+  duration : 1.5,
+  ease : Power4,
+  // delay:0.5
+})
+
+
+
+
+
+let progress = 0;
+// const preloader = document.getElementById('preloader');
+const countElement = document.querySelector('#count span');
+
+function updateCount() {
+    countElement.textContent = `${progress}`;
+
+    if (progress < 100) {
+        progress += 1;
+        setTimeout(updateCount, 25); // Adjust the timeout for the desired speed
+    }
+    else{
+      loaderani.to(".loader-head h1,.newone .loader-head h4",{
+        delay : 0.5,
+        opacity: 0,
+        duration:1
+      })
+      loaderani.to("#main_loader",{
+        duration : 1.5,
+        y:"-100%"
+    })
+      
+      
+      loaderani.from(".head h1",{
+        y : 120,
+        duration : 1,
+        ease : Power4,
+        delay : -1,
+        stagger : 0.1
+      })
+      
+    }
+}
+
+updateCount();
+
+
+
 });
 
 
@@ -341,41 +386,6 @@ revelElements.forEach(function(element) {
 
 // loader
 
-let progress = 0;
-    // const preloader = document.getElementById('preloader');
-    const countElement = document.querySelector('#count span');
 
-    function updateCount() {
-        countElement.textContent = `${progress}`;
 
-        if (progress < 100) {
-            progress += 1;
-            setTimeout(updateCount, 25); // Adjust the timeout for the desired speed
-        }
-        else{
-          loaderani.to(".loader-head h1,.newone .loader-head h4",{
-            delay : 0.5,
-            opacity: 0,
-            duration:1
-          })
-          loaderani.to("#main_loader",{
-            duration : 1.5,
-            y:"-100%"
-        })
-          
-          
-          loaderani.from(".head h1",{
-            y : 120,
-            duration : 1,
-            ease : Power4,
-            delay : -1,
-            stagger : 0.1
-          })
-          
-        }
-    }
-
-    updateCount();
-
-var loaderani = gsap.timeline();
 
